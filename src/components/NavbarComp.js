@@ -8,9 +8,11 @@ import {
 } from "react-router-dom";
 import Home from './Home';
 import Posts from './Posts';
+import AddPost from './Posts/AddPost';
 
 
 export default class NavbarComp extends Component {
+  
     render() {
         return (
           <Router>
@@ -28,18 +30,17 @@ export default class NavbarComp extends Component {
     </Navbar.Collapse>
  
 </Navbar>
+</div>
+<div>
+  <Routes>
+  <Route path='/home' element={<Home/>} />
+  <Route path='/posts' element={<Posts/>} />
+  <Route path="/post/add" element={<AddPost/>} />
+  </Routes>
+</div>
+</Router>
 
 
-            </div>
-            <div>
-            <Routes>
-            <Route path='/home' element={<Home/>} />
-            <Route path='/posts' element={<Posts/>} />
-          
-        </Routes>
-            </div>
-            
-            </Router>
             
         );
     }
