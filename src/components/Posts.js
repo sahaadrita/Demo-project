@@ -7,18 +7,17 @@ import {
     Route,
     Link
   } from "react-router-dom";
+import FetchRandomUser from './Posts/FetchRandomUser';
 
 
 export default class Posts extends Component {
-    componentDidMount(){
-        fetch('https://jsonplaceholder.typicode.com/posts')
-      .then((response) => response.json())
-      .then((json) => console.log(json));
-      }
+  
+    
+      
     render() {
         return (
             <div>
-                 <h1>Posts</h1>
+             <FetchRandomUser/>
                  <Link to="/post/add"> Add Post </Link>
                  
      
