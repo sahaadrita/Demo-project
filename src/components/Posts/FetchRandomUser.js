@@ -6,9 +6,9 @@ export default class FetchRandomUser extends Component {
       isLoaded: false
    }
     async componentDidMount(){
-    fetch('https://jsonplaceholder.typicode.com/posts')
-   .then((response) => response.json())
-   .then((data) => console.log(data));
+//     fetch('https://jsonplaceholder.typicode.com/posts')
+//    .then((response) => response.json())
+//    .then((data) => console.log(data));
        try{
          const response = await fetch('https://jsonplaceholder.typicode.com/posts');
          const data = await response.json();
