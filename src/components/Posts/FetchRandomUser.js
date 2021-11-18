@@ -1,41 +1,51 @@
 import React, { Component } from 'react'
+import { Card } from 'react-bootstrap'
 
 export default class FetchRandomUser extends Component {
    state={
-      data:[],
+      record:[],
       isLoaded: false
    }
-    async componentDidMount(){
-//     fetch('https://jsonplaceholder.typicode.com/posts')
-//    .then((response) => response.json())
-//    .then((data) => console.log(data));
-       try{
-         const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-         const data = await response.json();
-         console.log(data);
-         this.setState({data: data.splice(0,10),isLoaded: true});
-       }
-       catch (err){
-            console.log(err);
-        }
-     }
+     componentDidMount(){
+   
+     fetch('https://jsonplaceholder.typicode.com/posts'
+      )
+   .then((response) => {console.log(response)
+     return response.json()
+   })
+   .then((res) => {
+       this.setState({record:res})
+   })
+    
+    }
     render() {
         console.log('render method called');
-        const {data,isLoaded}=this.state;
+        const {record,isLoaded}=this.state;
         return (
-            <div>
-                {!isLoaded?<div> Loading...</div>:
+            <div className="wrapper">
+
+                {/* {!isLoaded?<div> Loading...</div>: */}
+           
+                 
+                     {record.map((item)=>{
+                        return (
+                            <div className="Card" >
+                            
+  <Card.Img variant="top" src="./images/img1.jpg" />
+  <Card.Body>
+    <Card.Title>{item.title}</Card.Title>
+    <Card.Text>
+      {item.body}
+    </Card.Text>
+   
+  </Card.Body>
+</div>
+                        )
+                     })}
+                    
                 
-                 <ul>
-                     {data.map((item)=>{
-                         return <li key={item.id}>{item.title}</li>
-                     })}
-                     {data.map((item)=>{
-                         return <li key={item.id}>{item.body}</li>
-                     })}
-                 </ul>
-     }
+     
             </div>
         )
     }
-}
+  }

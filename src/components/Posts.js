@@ -10,19 +10,20 @@ import {
 import FetchRandomUser from './Posts/FetchRandomUser';
 
 
-export default class Posts extends Component {
+export default function Posts () {
   
     
       
-    render() {
+   
         return (
             <div>
+                <Link to="/post/add"> Add Post </Link>
              <FetchRandomUser/>
-                 <Link to="/post/add"> Add Post </Link>
+                 
                  
      
     
             </div>
-        )
+        );
     }
-}
+
